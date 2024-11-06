@@ -29,8 +29,9 @@ if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
     
-    # call llm
-    msg = callLLM(st.session_state.messages)
-    
-    st.session_state.messages.append(msg)
-    st.chat_message("assistant").write(msg['content'])
+    with st.spinner('Wait for response...'):
+        # call llm
+        msg = callLLM(st.session_state.messages)
+        
+        st.session_state.messages.append(msg)
+        st.chat_message("assistant").write(msg['content'])
