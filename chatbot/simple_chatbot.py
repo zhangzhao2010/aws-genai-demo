@@ -1,7 +1,6 @@
 """simple_chatbot.py"""
 import streamlit as st
 import boto3
-import json
 
 bedrock_runtime = boto3.client('bedrock-runtime')
 
@@ -14,7 +13,7 @@ def callLLM(messages):
         modelId='anthropic.claude-3-sonnet-20240229-v1:0',
         messages=claudeMessages
     )
-    # print(json.dumps(response))
+
     llmMsg = response['output']['message']
     return {"role": llmMsg['role'], "content": llmMsg['content'][0]['text']}
 

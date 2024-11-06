@@ -1,4 +1,4 @@
-"""simple_chatbot.py"""
+"""simple_chatbot_stream.py"""
 import streamlit as st
 import boto3
 import json
